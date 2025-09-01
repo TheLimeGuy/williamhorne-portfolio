@@ -79,6 +79,7 @@ export default defineConfig(({ mode }) => ({
       // This prevents configuration files and other non-testable code from
       // skewing the coverage results.
       exclude: [
+        '**/dist/**',
         '**/.flowbite-react/**',
         '**/main.tsx',
         '**/*.config.js',
