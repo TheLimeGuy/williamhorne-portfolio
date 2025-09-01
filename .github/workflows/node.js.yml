@@ -1,0 +1,41 @@
+# This workflow will install Node.js dependencies, run linting, build the source code, and run tests.
+# It targets the application located in the /frontend directory.
+
+name: Node.js CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: Set up Node.js from .nvmrc
+      uses: actions/setup-node@v4
+      with:
+        node-version-file: 'frontend/.nvmrc'
+        cache: 'npm'
+        cache-dependency-path: 'frontend/package-lock.json'
+
+    - name: Install Dependencies
+      working-directory: ./frontend
+      run: npm ci
+
+    - name: Run Linting
+      working-directory: ./frontend
+      run: npm run lint
+
+    - name: Build Project
+      working-directory: ./frontend
+      run: npm run build --if-present
+
+    - name: Run Tests
+      working-directory: ./frontend
+      run: npm run coverage
