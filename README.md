@@ -36,7 +36,7 @@ The project is being built with a modern and scalable technology stack:
 
 This repository demonstrates a professional approach to modern web development:
 
-* **Automated CI/CD:** Every push to `main` triggers a GitHub Actions workflow that automatically lints, builds, and runs the entire test suite.
+* **Automated CI/CD:** Every pull request to `main` triggers a GitHub Actions workflow that automatically lints, builds, and runs the entire test suite.
 * **Test-Driven Principles:** The project is configured with Vitest for unit testing and includes a coverage threshold of 80% to ensure code quality and reliability.
 * **Protected `main` Branch:** Direct pushes to the `main` branch are blocked. All changes must go through a pull request, ensuring code is reviewed and passes all automated checks before being merged.
 * **Scalable Architecture:** The project is structured with separate `frontend` and (future) `backend` directories, anticipating a full-stack architecture.
